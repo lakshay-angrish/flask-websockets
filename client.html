@@ -9,12 +9,22 @@
         <button id="get_total_clients" onclick="get_total_clients()">Get Total Clients</button>
         <h3>OUTPUT</h4>
         <h4 id="output">--------</h4>
+        <h4>Last Heart Beat Received</h4>
+        <ol id="connected_messages"></ul>
     </body>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 
     <script type="text/javascript" charset="utf-8">
         var socket = io('http://localhost:5000');
+
+        socket.on("heart_beat", function(data) {
+            var list = document.getElementById("connected_messages");
+            var entry = document.createElement('li');
+            entry.appendChild(document.createTextNode(data + " - " + Date().toString()));
+            list.appendChild(entry);
+        });
+
         socket.on("timestamp", function(data) {
             var output = document.getElementById("output");
             output.textContent = data;

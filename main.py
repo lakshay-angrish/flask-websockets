@@ -62,7 +62,7 @@ def send_heart_beat():
     while True:
         print("Sending heart beat...")
         socketio.emit("heart_beat", "Connected", broadcast=True)
-        socketio.sleep(seconds=10)
+        socketio.sleep(seconds=60)
 
 
 if __name__ == "__main__":
