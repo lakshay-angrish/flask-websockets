@@ -2,7 +2,7 @@
 
  - Clone and `cd` to the repo
 
- - Optional: [Create and activate a virtual environment](Optional: Create and activate a virtual environment)
+ - Optional: [Create and activate a virtual environment](https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-and-using-virtual-environments)
 
  - `pip install -r requirements.txt`
 
